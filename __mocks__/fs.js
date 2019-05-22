@@ -3,10 +3,12 @@
 module.exports = exports = {};
 
 exports.readFile = (file, cb) => {
-  if( file.match(/bad/i) ) {
+  if( !file || file.match(/bad/i) ) {
     cb('Invalid File');
   }
   else {
-    cb(undefined, new Buffer('File Contents'));
+    setTimeout(() => {
+      cb(undefined, new Buffer('File Contents'));
+    }, Math.floor(Math.random() * 5));
   }
 };
