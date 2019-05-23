@@ -8,9 +8,7 @@ describe('File Reader Module', () => {
 
   it('when given a bad file, returns an error', done => {
     let files = ['bad.txt', 'good.txt', 'good.txt'];
-    // In jest, throwing errors obviously kills the app, so if you're
-    // going to throw one in a test, have the expect execute your code as a
-    // function so that you can trap it.
+
     reader(files, (err) => {
       expect(err).toBeDefined();
       done();
@@ -20,9 +18,7 @@ describe('File Reader Module', () => {
 
   it('error when given other than 3 files', done => {
     let files = ['bad.txt'];
-    // In jest, throwing errors obviously kills the app, so if you're
-    // going to throw one in a test, have the expect execute your code as a
-    // function so that you can trap it.
+
     reader(files, (err) => {
       expect(err).toBeDefined();
       done();
@@ -37,6 +33,7 @@ describe('File Reader Module', () => {
       expect(err).toBeNull();
       expect(data instanceof Array).toBeTruthy();
       expect(data.length).toBe(3);
+      expect(data).toStrictEqual(['file1.txt contents!', 'file2.txt contents!', 'file2.txt contents!']);
       done();
     });
   });

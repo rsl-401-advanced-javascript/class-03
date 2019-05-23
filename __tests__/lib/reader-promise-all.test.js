@@ -9,7 +9,7 @@ describe('File Reader Module With Promise All', () => {
   it('when given a bad file, returns an error', () => {
     let files = ['bad.txt', 'good.txt', 'good.txt'];
 
-    return expect(reader(files))
+    expect(reader(files))
       .rejects.toBeDefined();
   });
 
@@ -27,6 +27,7 @@ describe('File Reader Module With Promise All', () => {
       .then(result => {
         expect(result instanceof Array).toBeTruthy();
         expect(result.length).toBe(files.length);
+        expect(result).toStrictEqual(['file1.txt contents!', 'file2.txt contents!', 'file2.txt contents!']);
       });
   });
 });

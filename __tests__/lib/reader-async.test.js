@@ -29,6 +29,7 @@ describe('File Reader Module', () => {
 
     expect(data instanceof Array).toBeTruthy();
     expect(data.length).toBe(3);
+    expect(data).toStrictEqual(['file1.txt contents!', 'file2.txt contents!', 'file2.txt contents!']);
   });
 
 });
