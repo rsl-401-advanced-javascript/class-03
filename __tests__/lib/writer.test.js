@@ -20,6 +20,8 @@ describe('Read and Write to a File', () => {
     let newContents = await fsReadFile(file);
     newContents = newContents.toString().trim();
 
+    console.log(`newContents: ${newContents}\nprevContents: ${prevContents}`);
+
     expect(newContents).not.toBe(prevContents);
 
   });
