@@ -10,5 +10,9 @@ if( ! (files instanceof Array && files.length) ) {
   throw new Error('Invalid Args');
 }
 
-fileReader(files)
-  .then(results => console.log(results));
+// fileReader(files)
+//   .then(results => console.log(results));
+
+fileReader(files, (err, results) => {
+  console.log(results)
+})
