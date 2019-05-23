@@ -4,7 +4,7 @@ jest.mock('fs');
 
 const reader = require('../../lib/reader-callback.js');
 
-xdescribe('File Reader Module', () => {
+describe('File Reader Module', () => {
 
   it('when given a bad file, returns an error', done => {
     let files = ['bad.txt', 'good.txt', 'good.txt'];
