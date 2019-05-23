@@ -2,7 +2,7 @@
 
 jest.mock('fs');
 
-const reader = require('../../lib/reader.js');
+const reader = require('../../lib/reader-callback.js');
 
 xdescribe('File Reader Module', () => {
 
