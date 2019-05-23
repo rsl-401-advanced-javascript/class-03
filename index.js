@@ -1,6 +1,8 @@
 'use strict';
 
-const fileReader = require('./lib/reader-callback.js');
+const fileReaderA = require('./lib/reader-async.js');
+const fileReaderP = require('./lib/reader-promise.js');
+const fileReaderC = require('./lib/reader-callback.js');
 
 // Obtain and assert input
 let files = process.argv.slice(2);
@@ -10,9 +12,9 @@ if( ! (files instanceof Array && files.length) ) {
   throw new Error('Invalid Args');
 }
 
-// fileReader(files)
-//   .then(results => console.log(results));
+fileReaderP(files)
+  .then(results => console.log('RESULTS FROM PROMISE METHOD', results));
 
-fileReader(files, (err, results) => {
-  console.log(results)
+fileReaderC(files, (err, results) => {
+  console.log('RESULTS FROM CALLBACK METHOD', results);
 })
