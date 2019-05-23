@@ -11,7 +11,7 @@ xdescribe('File Reader Module', () => {
     // In jest, throwing errors obviously kills the app, so if you're
     // going to throw one in a test, have the expect execute your code as a
     // function so that you can trap it.
-    reader(files, (err, data) => {
+    reader(files, (err) => {
       expect(err).toBeDefined();
       done();
 
@@ -23,7 +23,7 @@ xdescribe('File Reader Module', () => {
     // In jest, throwing errors obviously kills the app, so if you're
     // going to throw one in a test, have the expect execute your code as a
     // function so that you can trap it.
-    reader(files, (err, data) => {
+    reader(files, (err) => {
       expect(err).toBeDefined();
       done();
 

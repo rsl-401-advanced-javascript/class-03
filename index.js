@@ -1,6 +1,6 @@
 'use strict';
 
-const fileReaderA = require('./lib/reader-async.js');
+// const fileReaderA = require('./lib/reader-async.js');
 const fileReaderP = require('./lib/reader-promise.js');
 const fileReaderC = require('./lib/reader-callback.js');
 
@@ -17,4 +17,4 @@ fileReaderP(files)
 
 fileReaderC(files, (err, results) => {
   console.log('RESULTS FROM CALLBACK METHOD', results);
-})
+});

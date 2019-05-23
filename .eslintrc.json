@@ -4,8 +4,7 @@
     "node": true,
     "commonjs": true,
     "jest": true,
-    "es6": true,
-    "es7": true
+    "es6": true
   },
   "globals": {
     "err": true,
@@ -15,13 +14,16 @@
   },
   "extends": "eslint:recommended",
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": 2018
   },
   "rules": {
     "no-console": "off",
-    "indent": [ "error", 2 ],
-    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "indent": ["error", 2],
+    "quotes": ["error", "single", {
+      "allowTemplateLiterals": true
+    }],
     "comma-dangle": ["error", "always-multiline"],
-    "semi": [ "error", "always" ]
+    "semi": ["error", "always"]
   }
 }
