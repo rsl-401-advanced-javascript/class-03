@@ -4,41 +4,31 @@ jest.mock('fs');
 
 const reader = require('../../lib/reader-async.js');
 
-xdescribe('File Reader Module', () => {
+describe('File Reader Module', () => {
 
-  it('when given a bad file, returns an error', done => {
+  it('when given a bad file, returns an error', () => {
     let files = ['bad.txt', 'good.txt', 'good.txt'];
-    // In jest, throwing errors obviously kills the app, so if you're
-    // going to throw one in a test, have the expect execute your code as a
-    // function so that you can trap it.
-    reader(files, (err) => {
-      expect(err).toBeDefined();
-      done();
 
-    });
+    return expect(reader(files)).rejects.toBeDefined();
+
   });
 
-  it('error when given other than 3 files', done => {
+  it('error when given other than 3 files', async () => {
     let files = ['bad.txt'];
-    // In jest, throwing errors obviously kills the app, so if you're
-    // going to throw one in a test, have the expect execute your code as a
-    // function so that you can trap it.
-    reader(files, (err) => {
-      expect(err).toBeDefined();
-      done();
 
-    });
+    let result = await reader(files);
+
+    expect(result).toBe('Less than 3 files provided');
   });
 
 
-  it('reads 3 files', done => {
+  it('reads 3 files', async () => {
     let files = ['file1.txt', 'file2.txt', 'file2.txt'];
-    reader(files, (err, data) => {
-      expect(err).toBeNull();
-      expect(data instanceof Array).toBeTruthy();
-      expect(data.length).toBe(3);
-      done();
-    });
+    
+    let data = await reader(files);
+
+    expect(data instanceof Array).toBeTruthy();
+    expect(data.length).toBe(3);
   });
 
 });
